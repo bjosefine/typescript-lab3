@@ -1,0 +1,95 @@
+DROP TABLE orderProduct;
+DROP TABLE orderInfo;
+DROP TABLE orderStatus;
+DROP TABLE userInfo;
+DROP TABLE product;
+DROP TABLE category;
+
+
+
+CREATE TABLE category (
+categoryId SERIAL PRIMARY KEY,
+categoryName TEXT
+);
+
+CREATE TABLE product (
+productId SERIAL PRIMARY KEY,
+productName TEXT,
+productPrice INT,
+productImg TEXT,
+productMaterial TEXT,
+productCategory INT,
+createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (productCategory) REFERENCES category(categoryId)
+);
+
+CREATE TABLE userInfo (
+userId SERIAL PRIMARY KEY,
+userEmail TEXT UNIQUE,
+userPassword TEXT,
+userFirstname TEXT,
+userLastname TEXT,
+userPhone TEXT,
+userBirthdate DATE,
+userStreet TEXT,
+userCity TEXT,
+userState TEXT,
+userZipCode TEXT
+);
+
+CREATE TABLE orderStatus (
+statusId SERIAL PRIMARY KEY,
+statusName TEXT
+);
+
+CREATE TABLE orderInfo (
+orderId SERIAL PRIMARY KEY,
+orderUser INT,
+orderStatus INT,
+createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (orderUser) REFERENCES userInfo(userId),
+FOREIGN KEY (orderStatus) REFERENCES orderStatus(statusId)
+);
+
+CREATE TABLE orderProduct (
+orderProductId SERIAL PRIMARY KEY,
+orderId INT,
+productId INT,
+quantity INT,
+FOREIGN KEY (orderId) REFERENCES orderInfo(orderId),
+FOREIGN KEY (productId) REFERENCES product(productId)
+);
+
+
+
+
+INSERT INTO category(categoryName) VALUES
+('Shoes'),
+('Jacket'),
+('Top'),
+('Bottom');
+
+INSERT INTO product (productName, productPrice, productImg, productMaterial, productCategory) VALUES
+('T-shirt name', 40, 'https://b.stablecog.com/fab8e59a-f3e5-4c39-92d4-49fcdf658d45.jpeg', '100% Cotton', 3),
+('Jeans name', 120, 'https://b.stablecog.com/8783abdf-b7bb-4f9a-9950-4750c1dde83b.jpeg', 'Jeans', 4),
+('Shoes name', 190, 'https://b.stablecog.com/2cfcc4b7-b18b-46d6-bb51-5f99ffb0041a.jpeg', 'Leather', 1);
+
+INSERT INTO userInfo (userEmail, userPassword, userFirstname, userLastname, userPhone, userBirthdate, userStreet, userCity, userState, userZipCode) VALUES
+('janedoe@mail.com', 'password', 'Jane', 'Doe', '070-0000000', '1995-01-01', '123 Street', 'Town', 'State', '12345'),
+('johndoe@mail.com', 'password', 'John', 'Doe', '070-0000000', '1995-01-01', '123 Street', 'Town', 'State', '12345');
+
+INSERT INTO orderStatus (statusName) VALUES
+('Processing'),
+('Shipped'),
+('Delivered');
+
+INSERT INTO orderInfo (orderUser, orderStatus) VALUES
+(1, 1),
+(1, 2),
+(2, 1);
+
+INSERT INTO orderProduct (orderId, productId, quantity) VALUES
+(1, 1, 2), 
+(1, 2, 1),
+(2, 3, 1),
+(3, 1, 1);
