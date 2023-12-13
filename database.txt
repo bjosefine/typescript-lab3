@@ -72,7 +72,8 @@ INSERT INTO category(categoryName) VALUES
 INSERT INTO product (productName, productPrice, productImg, productMaterial, productCategory) VALUES
 ('T-shirt name', 40, 'https://b.stablecog.com/fab8e59a-f3e5-4c39-92d4-49fcdf658d45.jpeg', '100% Cotton', 3),
 ('Jeans name', 120, 'https://b.stablecog.com/8783abdf-b7bb-4f9a-9950-4750c1dde83b.jpeg', 'Jeans', 4),
-('Shoes name', 190, 'https://b.stablecog.com/2cfcc4b7-b18b-46d6-bb51-5f99ffb0041a.jpeg', 'Leather', 1);
+('Shoes name', 190, 'https://b.stablecog.com/2cfcc4b7-b18b-46d6-bb51-5f99ffb0041a.jpeg', 'Leather', 1),
+
 
 INSERT INTO userInfo (userEmail, userPassword, userFirstname, userLastname, userPhone, userBirthdate, userStreet, userCity, userState, userZipCode) VALUES
 ('janedoe@mail.com', 'password', 'Jane', 'Doe', '070-0000000', '1995-01-01', '123 Street', 'Town', 'State', '12345'),
