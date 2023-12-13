@@ -8,8 +8,8 @@ import { ProductDetail } from "./pages/ProductDetail";
 function Root() {
   return (
     <>
-      <Navbar />
-      <main>
+      <main className="font-thin bg-white">
+        <Navbar />
         <Outlet />
       </main>
     </>

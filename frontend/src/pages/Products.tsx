@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowDownIcon } from "../assets/icons/ArrowDownIcon";
+import { Button } from "../components/Button";
 
 interface Product {
   productid: number;
@@ -35,9 +37,14 @@ export const Products: React.FC = () => {
 
   return (
     <>
-      <p>Hola products!</p>
+      <div>
+        <h1>Products</h1>
+        <div className="flex">
+          filter <ArrowDownIcon />
+        </div>
+      </div>
       <div className="w-full">
-        <div className="w-11/12 mx-auto flex flex-wrap gap-3 justify-center items-center bg-orange-400">
+        <div className="w-11/12 mx-auto flex flex-wrap gap-3 justify-center items-center">
           {products.map(
             ({ productid, productname, productprice, productimg }) => (
               <Link to={`/products/${productid}`} key={productid}>
@@ -47,7 +54,7 @@ export const Products: React.FC = () => {
                     alt={productname}
                     className="w-[200px]"
                   />
-                  <div className="bg-green-100 text-left w-full">
+                  <div className="text-left w-full">
                     <p>{productname}</p>
                     <p>
                       {productprice} <span>$</span>
@@ -57,6 +64,9 @@ export const Products: React.FC = () => {
               </Link>
             )
           )}
+        </div>
+        <div className="flex justify-center items-center p-4">
+          <Button label="Load more" type="black" />
         </div>
       </div>
     </>
