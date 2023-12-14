@@ -37,9 +37,11 @@ export const Products: React.FC = () => {
 
   return (
     <>
-      <div>
-        <h1>Products</h1>
-        <div className="flex">
+      <div className="p-2">
+        <p className="font-secondary text-4xl tracking-tight text-center">
+          Products
+        </p>
+        <div className="flex w-full items-center justify-center p-2">
           filter <ArrowDownIcon />
         </div>
       </div>

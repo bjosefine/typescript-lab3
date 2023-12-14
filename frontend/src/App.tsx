@@ -11,7 +11,9 @@ function Root() {
     <>
       <main className="font-thin bg-white">
         <Navbar />
-        <Outlet />
+        <div className="min-h-screen">
+          <Outlet />
+        </div>
         <Footer />
       </main>
     </>

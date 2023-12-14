@@ -6,7 +6,7 @@ import { PinterestIcon } from "../assets/icons/PinterestIcon";
 export const Footer = () => {
   return (
     <>
-      <div className="bg-black w-screen text-white flex flex-col gap-2 sm:flex-row">
+      <div className="bottom-0 bg-black w-screen text-white flex flex-col gap-2 sm:flex-row">
         <div className="p-2 flex-grow">Sitelogo</div>
         <div className="p-2 flex-grow flex flex-row justify-around sm:justify-center sm:gap-12">
           <div>
