@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { Products } from "./pages/Products";
 import { Navbar } from "./components/Navbar";
 import { ProductDetail } from "./pages/ProductDetail";
+import { Footer } from "./components/Footer";
 
 function Root() {
   return (
@@ -11,6 +12,7 @@ function Root() {
       <main className="font-thin bg-white">
         <Navbar />
         <Outlet />
+        <Footer />
       </main>
     </>
   );
