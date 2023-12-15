@@ -1,7 +1,6 @@
 import express from "express";
 const router = express.Router();
 import client from "../connection";
-import { request } from "http";
 
 router.get("/products", async (_request, response) => {
   try {

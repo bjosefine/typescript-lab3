@@ -1,10 +1,13 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 import { Home } from "./pages/Home";
-import { Products } from "./pages/Products";
-import { Navbar } from "./components/Navbar";
-import { ProductDetail } from "./pages/ProductDetail";
-import { Footer } from "./components/Footer";
+import { Products } from "./pages/Products/Products";
+import { ProductDetail } from "./pages/Products/ProductDetail";
+
+import { Login } from "./pages/Login/Login";
+import { AdminHome } from "./pages/Admin/AdminHome";
 
 function Root() {
   return (
@@ -26,7 +29,9 @@ export const App = () => {
       children: [
         { element: <Home />, path: "/" },
         { element: <Products />, path: "/products" },
-        { element: <ProductDetail />, path: "products/:productId" },
+        { element: <ProductDetail />, path: "/products/:productId" },
+        { element: <AdminHome />, path: "/admin" },
+        { element: <Login />, path: "/login" },
       ],
       element: <Root />,
     },

@@ -2,12 +2,15 @@ import express from "express";
 import path from "path";
 import cors from "cors";
 import productsRouter from "./routes/products";
+import ordersRouter from "./routes/orders";
+import userRouter from "./routes/user";
+import loginRouter from "./routes/login";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/api", productsRouter);
+app.use("/api", productsRouter, ordersRouter, userRouter, loginRouter);
 
 const PORT = process.env.PORT || 3000;
 

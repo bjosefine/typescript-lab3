@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Button } from "../components/Button";
-import { HeartIcon } from "../assets/icons/HeartIcon";
+import { Button } from "../../components/Button";
+import { HeartIcon } from "../../assets/icons/HeartIcon";
 
 interface ProductDetail {
   productid: number;

@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { CartIcon } from "../assets/icons/CartIcon";
 import { HeartIcon } from "../assets/icons/HeartIcon";
 import { HamburgerClose } from "../assets/icons/HamburgerClose";
 import { HamburgerOpen } from "../assets/icons/HamburgerOpen";
+import { ProfileIcon } from "../assets/icons/ProfileIcon";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,12 +35,12 @@ export const Navbar = () => {
           </div>
           {/* NAV LINKS CONTAINER */}
           <div className="w-full gap-3 uppercase text-4xl h-80 flex flex-col justify-end sm:flex-row sm:h-12 sm:p-2 sm:gap-2 sm:items-center sm:text-base sm:justify-start">
-            <NavLink to="/" onClick={() => setIsOpen(false)}>
+            <Link to="/" onClick={() => setIsOpen(false)}>
               Home
-            </NavLink>
-            <NavLink to="/products" onClick={() => setIsOpen(false)}>
+            </Link>
+            <Link to="/products" onClick={() => setIsOpen(false)}>
               Products
-            </NavLink>
+            </Link>
             <p>New</p>
           </div>
           {/* ICONS CONTAINER */}
@@ -59,6 +60,13 @@ export const Navbar = () => {
               <span>
                 <p className="text-sm">0</p>
               </span>
+            </div>
+            <div className="p-1 flex justify-between border-b gap-2 sm:border-none">
+              <Link to="/login" onClick={() => setIsOpen(false)}>
+                <span className="flex gap-2 items-center">
+                  <ProfileIcon /> <p className="text-sm sm:hidden">Login</p>
+                </span>
+              </Link>
             </div>
           </div>
           {/* EXTRA LINKS CONTAINER */}
