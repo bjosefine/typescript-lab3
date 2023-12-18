@@ -2,20 +2,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "../../components/Button";
 import { HeartIcon } from "../../assets/icons/HeartIcon";
-
-interface ProductDetail {
-  productid: number;
-  productname: string;
-  productprice: number;
-  productimg: string;
-  productmaterial: string;
-  productcategory: string;
-  createdat: string;
-}
+import { ProductsInterface } from "../../interface/interface";
 
 export const ProductDetail = () => {
   const { productId } = useParams();
-  const [productDetail, setProductDetail] = useState<ProductDetail[]>([]);
+  const [productDetail, setProductDetail] = useState<ProductsInterface[]>([]);
   console.log(productId);
 
   useEffect(() => {
@@ -26,7 +17,7 @@ export const ProductDetail = () => {
         }
         return response.json();
       })
-      .then((result: ProductDetail[]) => {
+      .then((result: ProductsInterface[]) => {
         setProductDetail(result);
       })
       .catch((error) => {

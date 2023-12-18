@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../contexts/Context";
 import { CartIcon } from "../assets/icons/CartIcon";
 import { HeartIcon } from "../assets/icons/HeartIcon";
 import { HamburgerClose } from "../assets/icons/HamburgerClose";
@@ -8,6 +9,8 @@ import { ProfileIcon } from "../assets/icons/ProfileIcon";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const userContext = useContext(UserContext);
+  const user = userContext ? userContext.user : null;
   return (
     <>
       <div
@@ -62,9 +65,15 @@ export const Navbar = () => {
               </span>
             </div>
             <div className="p-1 flex justify-between border-b gap-2 sm:border-none">
-              <Link to="/login" onClick={() => setIsOpen(false)}>
+              <Link
+                to={user ? "/profile" : "/login"}
+                onClick={() => setIsOpen(false)}
+              >
                 <span className="flex gap-2 items-center">
-                  <ProfileIcon /> <p className="text-sm sm:hidden">Login</p>
+                  <ProfileIcon />{" "}
+                  <p className="text-sm sm:hidden">
+                    {user ? "Profile" : "Login"}
+                  </p>
                 </span>
               </Link>
             </div>

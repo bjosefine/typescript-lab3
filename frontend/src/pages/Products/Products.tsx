@@ -3,19 +3,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDownIcon } from "../../assets/icons/ArrowDownIcon";
 import { Button } from "../../components/Button";
-
-interface Product {
-  productid: number;
-  productname: string;
-  productprice: number;
-  productimg: string;
-  productmaterial: string;
-  productcategory: string;
-  createdat: string;
-}
+import { ProductsInterface } from "../../interface/interface";
 
 export const Products: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductsInterface[]>([]);
 
   useEffect(() => {
     fetch("/api/products")
@@ -25,7 +16,7 @@ export const Products: React.FC = () => {
         }
         return response.json();
       })
-      .then((result: Product[]) => {
+      .then((result: ProductsInterface[]) => {
         setProducts(result);
       })
       .catch((error) => {
