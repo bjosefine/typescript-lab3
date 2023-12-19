@@ -1,15 +1,15 @@
 export interface UserInterface {
-  userId: number;
-  userEmail: string;
-  userPassword: string;
-  userFirstname: string;
-  userLastname: string;
-  userPhone: string;
-  userBirthdate: string;
-  userStreet: string;
-  userCity: string;
-  userState: string;
-  userZipCode: string;
+  userid: number;
+  useremail: string;
+  userpassword: string;
+  userfirstname: string;
+  userlastname: string;
+  userphone: string;
+  userbirthdate: string;
+  userstreet: string;
+  usercity: string;
+  userstate: string;
+  userzipCode: string;
 }
 
 export interface ProductsInterface {

@@ -2,9 +2,10 @@ interface ButtonProps {
   label: string;
   type: string;
   icon?: React.ReactNode;
+  onClick?: () => void;
 }
 
-export const Button = ({ label, type, icon }: ButtonProps) => {
+export const Button = ({ label, type, icon, onClick }: ButtonProps) => {
   const baseStyle = "uppercase border border-black py-3 px-3 w-52";
   const flexStyle = icon ? "flex justify-between items-center" : "";
   const buttonStyle =
@@ -18,7 +19,7 @@ export const Button = ({ label, type, icon }: ButtonProps) => {
 
   return (
     <>
-      <button className={buttonStyle}>
+      <button className={buttonStyle} onClick={onClick}>
         {label} {icon}
       </button>
     </>

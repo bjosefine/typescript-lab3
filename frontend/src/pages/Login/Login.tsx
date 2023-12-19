@@ -1,19 +1,13 @@
 import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../contexts/Context";
+import { UserContextInterface } from "../../contexts/Context";
 import { Button } from "../../components/Button";
-
-function useUserContext() {
-  const context = useContext(UserContext);
-  if (!context) {
-    throw new Error("Error");
-  }
-  return context;
-}
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user } = useUserContext();
+  const userContext = useContext(UserContext) as UserContextInterface;
+  const { user, setUser } = userContext;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,13 +19,14 @@ export const Login: React.FC = () => {
       },
       body: JSON.stringify({ email, password }),
     });
-    const data = await response.json();
+    const userData = await response.json();
 
     if (response.ok) {
-      console.log("Logged in:", data);
-      console.log({ user });
+      console.log("Logged in:", userData);
+      setUser(userData);
+      window.location.replace("/profile");
     } else {
-      console.log("Login failed:", data);
+      console.log("Login failed:", user);
     }
   };
 
@@ -41,28 +36,34 @@ export const Login: React.FC = () => {
 
   return (
     <>
-      <p>login page</p>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col p-2 gap-2 items-center">
-          <input
-            type="text"
-            placeholder="email"
-            className="border border-black"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="password"
-            className="border border-black"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+      <div className="flex items-center flex-col gap-4">
+        <p className="font-secondary text-4xl tracking-tight text-center">
+          Login
+        </p>
+        <form onSubmit={handleSubmit}>
+          <div className="flex flex-col p-2 gap-2 items-center">
+            <input
+              type="text"
+              placeholder="email"
+              className="border border-black w-52"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="password"
+              className="border border-black w-52"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button label="Log in" type="black" />
+          </div>
+        </form>
+        <div className="flex flex-col items-center gap-1">
+          <p className="text-xs">Not a member?</p>
+          <Button label="Register account" type="white" />
         </div>
-        <Button label="Log in" type="black" />
-      </form>
-      <p>Not a member?</p>
-      <Button label="Register account" type="white" />
+      </div>
     </>
   );
 };
