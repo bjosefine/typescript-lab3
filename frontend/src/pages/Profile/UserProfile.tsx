@@ -29,6 +29,12 @@ export const UserProfile = () => {
           <div className="bg-black text-white h-32 flex items-center justify-center">
             <p className="text-3xl">Favorites</p>
           </div>
+          <div className="bg-black text-white h-32 flex items-center justify-center">
+            <p className="text-3xl">Orders</p>
+          </div>
+          <div className="bg-black text-white h-32 flex items-center justify-center">
+            <p className="text-3xl">Settings</p>
+          </div>
         </div>
         <Button onClick={handleLogout} label="log out" type="white" />
       </div>

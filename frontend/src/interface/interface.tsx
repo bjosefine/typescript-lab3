@@ -21,3 +21,8 @@ export interface ProductsInterface {
   productcategory: string;
   createdat: string;
 }
+
+export interface CategoryInterface {
+  categoryid: number;
+  categoryname: string;
+}

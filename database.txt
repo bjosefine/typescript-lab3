@@ -70,9 +70,32 @@ INSERT INTO category(categoryName) VALUES
 ('Bottom');
 
 INSERT INTO product (productName, productPrice, productImg, productMaterial, productCategory) VALUES
-('T-shirt name', 40, 'https://b.stablecog.com/fab8e59a-f3e5-4c39-92d4-49fcdf658d45.jpeg', '100% Cotton', 3),
-('Jeans name', 120, 'https://b.stablecog.com/8783abdf-b7bb-4f9a-9950-4750c1dde83b.jpeg', 'Jeans', 4),
-('Shoes name', 190, 'https://b.stablecog.com/2cfcc4b7-b18b-46d6-bb51-5f99ffb0041a.jpeg', 'Leather', 1),
+('Ava T-shirt', 35, 'https://b.stablecog.com/fab8e59a-f3e5-4c39-92d4-49fcdf658d45.jpeg', '100% Organic Cotton', 3),
+('Lily Denim Jeans', 100, 'https://b.stablecog.com/8783abdf-b7bb-4f9a-9950-4750c1dde83b.jpeg', 'Denim', 4),
+('Olivia Leather Boots', 160, 'https://b.stablecog.com/2cfcc4b7-b18b-46d6-bb51-5f99ffb0041a.jpeg', 'Genuine Leather', 1),
+('Sophie Beige Coat', 150, 'https://b.stablecog.com/236cd440-e0d9-4222-be03-3b16a8e31e2e.jpeg', 'Wool Blend', 2),
+('Isabella Black Pants', 130, 'https://b.stablecog.com/1c37e581-842b-4772-80ba-b027038fd4bc.jpeg', 'Polyester Blend', 4),
+('Grace Trenchcoat', 180, 'https://b.stablecog.com/42ebef26-e6fa-40b0-b79c-ca9d64d79dff.jpeg', 'Cotton Blend', 2),
+('Chloe Grey Jeans', 140, 'https://b.stablecog.com/5dbdbc33-107a-4215-b392-8d245a17abb7.jpeg', 'Denim', 4),
+('Aria Pilot Jacket', 200, 'https://b.stablecog.com/81778850-25d4-4077-ac79-bec37b578767.jpeg', 'Leather and Faux Fur', 2),
+('Abigail Knitted Sweater', 120, 'https://b.stablecog.com/2969e002-fa24-4b0c-a046-8ec1c2b30f84.jpeg', 'Wool Blend', 3),
+('Ella Knitted T-shirt', 110, 'https://b.stablecog.com/e020a1e7-ea9e-4b2e-9f6e-13381292fbe3.jpeg', 'Cotton and Wool Blend', 2),
+('Amelia Suit Jacket', 180, 'https://b.stablecog.com/cd5a9708-aca5-4636-8c46-f246d686f2b5.jpeg', 'Wool Blend', 3),
+('Grace Satin Top', 130, 'https://b.stablecog.com/8077ac26-ab6d-417d-8fd3-0be1d5389fd9.jpeg', 'Silk Satin', 3),
+('Stella Grey Suit Pants', 120, 'https://b.stablecog.com/b16d6a19-b728-4552-a79e-d6c2e4b397a5.jpeg', 'Polyester Blend', 4),
+('Lucy Light Washed Jeans', 100, 'https://b.stablecog.com/424bbec6-fd2e-445e-966f-e98d80402d5d.jpeg', 'Denim', 4),
+('Mila Quilted Black Jacket', 220, 'https://b.stablecog.com/92fab351-3987-45b4-8ad4-e7ba4cd9b9c5.jpeg', 'Polyester', 2),
+('Zoe Black Slim Pants', 90, 'https://b.stablecog.com/007851a4-1cd8-4833-b852-ec3bc614325f.jpeg', 'Polyester Blend', 4),
+('Violet White Knitted Vest', 140, 'https://b.stablecog.com/abbf1284-881c-40bb-bb21-d843d2cc198b.jpeg', 'Wool Blend', 3),
+('Ava White T-shirt', 35, 'https://b.stablecog.com/6b78e0fa-267c-4804-9abd-5faaf6d7d114.jpeg', '100% Organic Cotton', 3),
+('Emma Black and Beige Knitted Sweater', 160, 'https://b.stablecog.com/56b01153-765f-4e4e-be7c-241c77923c51.jpeg', 'Cotton and Wool Blend', 3),
+('Aurora Black Boots', 180, 'https://b.stablecog.com/e9a52da2-3fb5-45eb-9810-fd9e8d7bf2db.jpeg', 'Genuine Leather', 1),
+('Mia Black Blazer', 160, 'https://b.stablecog.com/8bc86066-c645-441b-ab59-52eeca15ba43.jpeg', 'Polyester Blend', 3),
+('Scarlett Black Satin Dress', 150, 'https://b.stablecog.com/cae155ec-359a-4754-a11f-8d4ff699283d.jpeg', 'Silk Satin', 3),
+('Eva Black Coat', 160, 'https://b.stablecog.com/f06692d4-5632-4121-983d-484ebdf365ee.jpeg', 'Wool Blend', 2),
+('Nathalie Black and White Sweater', 140, 'https://b.stablecog.com/6f473e02-2b42-451c-a83a-5f6abf6b3db8.jpeg', 'Cotton Blend', 3);
+
+
 
 
 INSERT INTO userInfo (userEmail, userPassword, userFirstname, userLastname, userPhone, userBirthdate, userStreet, userCity, userState, userZipCode) VALUES

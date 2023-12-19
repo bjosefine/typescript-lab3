@@ -10,6 +10,7 @@ export const ProductDetail = () => {
   console.log(productId);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetch(`/api/products/${productId}`)
       .then((response) => {
         if (!response.ok) {
