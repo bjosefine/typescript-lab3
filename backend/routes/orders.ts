@@ -49,4 +49,34 @@ router.get("/orders/:ordersId", async (request, response) => {
   }
 });
 
+router.get("/user/orders/:userId", async (request, response) => {
+  const { userId } = request.params;
+  try {
+    const { rows } = await client.query(
+      `
+      SELECT 
+      orderInfo.orderId,
+      orderStatus.statusName as orderStatus,
+      orderInfo.createdAt,
+      array_agg(
+        json_build_object(
+          'productName', product.productName,
+          'productQuantity', orderProduct.quantity
+        )
+      ) as products
+    FROM orderInfo
+    INNER JOIN orderStatus ON orderInfo.orderStatus = orderStatus.statusId
+    INNER JOIN orderProduct ON orderInfo.orderId = orderProduct.orderId
+    INNER JOIN product ON orderProduct.productId = product.productId
+    WHERE (orderInfo.orderUser = $1)
+    GROUP BY orderInfo.orderId, orderStatus.statusName, orderInfo.createdAt
+    `,
+      [userId]
+    );
+    response.json(rows);
+  } catch (error) {
+    console.error(error, "FAIL");
+  }
+});
+
 export default router;

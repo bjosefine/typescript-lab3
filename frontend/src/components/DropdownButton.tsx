@@ -11,7 +11,7 @@ export const DropdownButton = ({ label, categories }: DropdownButtonProps) => {
   return (
     <>
       <div
-        className="flex w-full items-center justify-center p-2 relative"
+        className="cursor-pointer flex w-full items-center justify-center p-2 relative"
         onClick={() => setIsDropDown(!isDropDown)}
       >
         <p>{label}</p>

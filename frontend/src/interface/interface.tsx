@@ -26,3 +26,14 @@ export interface CategoryInterface {
   categoryid: number;
   categoryname: string;
 }
+
+export interface OrdersInterface {
+  orderid: number;
+  orderuser: string;
+  orderstatus: string;
+  createdat: string;
+  products: {
+    productName: string;
+    productQuantity: number;
+  }[];
+}
