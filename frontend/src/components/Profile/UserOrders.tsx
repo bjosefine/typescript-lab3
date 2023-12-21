@@ -11,6 +11,28 @@ export const UserOrders = () => {
   console.log({ user });
   console.log({ orders });
 
+  const calculateTotalPricePerProduct = (
+    products: { productPrice: number; productQuantity: number }[]
+  ) => {
+    return products.map((product) => {
+      return {
+        totalQuantity: product.productQuantity,
+        totalPrice: product.productPrice * product.productQuantity,
+      };
+    });
+  };
+
+  const calculateTotalPrice = (
+    products: { productPrice: number; productQuantity: number }[]
+  ) => {
+    let totalPrice = 0;
+    Object.values(products).forEach((product) => {
+      totalPrice += product.productPrice * product.productQuantity;
+    });
+    return totalPrice;
+  };
+  console.log(calculateTotalPrice);
+
   useEffect(() => {
     fetch(`/api/user/orders/${user?.userid}`)
       .then((response) => {
@@ -35,19 +57,30 @@ export const UserOrders = () => {
       {orders.map((order) => (
         <div
           key={order.orderid}
-          className="bg-orange-300 w-64 gap-3 flex flex-col p-4 mb-4"
+          className="bg-black text-white w-64 gap-3 flex flex-col p-4 mb-4"
         >
           <p>Order ID: {order.orderid}</p>
-          <p>Status {order.orderstatus}</p>
-          <p>Ordered {order.createdat}</p>
-          <ul>
-            {order.products.map((product, index) => (
-              <li key={index}>
-                <p>Product Name: {product.productName}</p>
-                <p>Product Quantity: {product.productQuantity}</p>
-              </li>
-            ))}
-          </ul>
+          <p>
+            Status: <span className="italic">{order.orderstatus}</span>
+          </p>
+          <p>Ordered: {new Date(order.createdat).toLocaleDateString()}</p>
+
+          {order.products.map((product, index) => (
+            <div key={index} className="pb-3 border-b flex w-full gap-1">
+              <div>
+                <img src={product.productImg} className="w-16" />
+              </div>
+              <div className="w-full">
+                <p>{product.productName}</p>
+                <p>Quantity: {product.productQuantity}</p>
+                <p>
+                  Price:{" "}
+                  {calculateTotalPricePerProduct([product])[0].totalPrice}$
+                </p>
+              </div>
+            </div>
+          ))}
+          <p>Total price: {calculateTotalPrice(order.products)} </p>
         </div>
       ))}
     </>

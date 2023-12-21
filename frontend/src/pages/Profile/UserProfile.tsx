@@ -6,7 +6,7 @@ import { UserOrders } from "../../components/Profile/UserOrders";
 import { ArrowBackIcon } from "../../assets/icons/ArrowBackIcon";
 import { UserSettings } from "../../components/Profile/UserSettings";
 import { UserCart } from "../../components/Profile/UserCart";
-import { UserFavourites } from "../../components/Profile/userFavourites";
+import { UserFavourites } from "../../components/Profile/UserFavourites";
 
 export const UserProfile = () => {
   const userContext = useContext(UserContext) as UserContextInterface;

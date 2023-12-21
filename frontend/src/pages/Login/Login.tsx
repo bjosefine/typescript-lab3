@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../contexts/Context";
 import { UserContextInterface } from "../../contexts/Context";
 import { Button } from "../../components/Button";
+import { Link } from "react-router-dom";
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -61,7 +62,9 @@ export const Login: React.FC = () => {
         </form>
         <div className="flex flex-col items-center gap-1">
           <p className="text-xs">Not a member?</p>
-          <Button label="Register account" type="white" />
+          <Link to="/create">
+            <Button label="Create account" type="white" />
+          </Link>
         </div>
       </div>
     </>

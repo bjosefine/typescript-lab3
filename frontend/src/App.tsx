@@ -11,6 +11,7 @@ import { ProductDetail } from "./pages/Products/ProductDetail";
 import { Login } from "./pages/Login/Login";
 import { AdminHome } from "./pages/Admin/AdminHome";
 import { UserProfile } from "./pages/Profile/UserProfile";
+import { CreateAccount } from "./pages/Login/createAccount";
 
 function Root() {
   return (
@@ -36,6 +37,7 @@ export const App = () => {
         { element: <Products />, path: "/products" },
         { element: <ProductDetail />, path: "/products/:productId" },
         { element: <Login />, path: "/login" },
+        { element: <CreateAccount />, path: "/create" },
         { element: <AdminHome />, path: "/admin" },
         { element: <UserProfile />, path: "/profile" },
       ],

@@ -61,6 +61,8 @@ router.get("/user/orders/:userId", async (request, response) => {
       array_agg(
         json_build_object(
           'productName', product.productName,
+          'productImg', product.productImg,
+          'productPrice', product.productPrice,
           'productQuantity', orderProduct.quantity
         )
       ) as products

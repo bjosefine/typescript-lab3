@@ -34,6 +34,8 @@ export interface OrdersInterface {
   createdat: string;
   products: {
     productName: string;
+    productImg: string;
+    productPrice: number;
     productQuantity: number;
   }[];
 }
