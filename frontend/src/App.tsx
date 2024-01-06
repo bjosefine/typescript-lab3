@@ -11,7 +11,7 @@ import { ProductDetail } from "./pages/Products/ProductDetail";
 import { Login } from "./pages/Login/Login";
 import { AdminHome } from "./pages/Admin/AdminHome";
 import { UserProfile } from "./pages/Profile/UserProfile";
-import { CreateAccount } from "./pages/Login/createAccount";
+import { CreateAccount } from "./pages/Login/CreateAccount";
 
 function Root() {
   return (

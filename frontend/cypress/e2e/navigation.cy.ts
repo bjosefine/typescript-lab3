@@ -4,7 +4,6 @@ describe("Navigation", () => {
     cy.get("nav").should("exist");
     cy.get("nav").contains("Home");
     cy.get("nav").contains("Products");
-    cy.get("nav").contains("New");
     cy.get("nav").contains("Login");
   });
   it("Nav to products", () => {

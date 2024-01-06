@@ -44,7 +44,6 @@ export const Navbar = () => {
             <Link to="/products" onClick={() => setIsOpen(false)}>
               Products
             </Link>
-            <p>New</p>
           </div>
           {/* ICONS CONTAINER */}
           <div className="w-full uppercase flex flex-col sm:flex-row sm:items-center sm:p-2 sm:gap-2 sm:justify-end">
