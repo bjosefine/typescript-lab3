@@ -64,7 +64,10 @@ export const Navbar = () => {
                 <p className="text-sm">0</p>
               </span>
             </div>
-            <div className="p-1 flex justify-between border-b gap-2 sm:border-none">
+            <div
+              id="navProfile"
+              className="p-1 flex justify-between border-b gap-2 sm:border-none"
+            >
               <Link
                 to={user ? "/profile" : "/login"}
                 onClick={() => setIsOpen(false)}

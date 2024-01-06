@@ -12,4 +12,15 @@ describe("Products", () => {
     cy.visit("http://localhost:5173/products");
     cy.get(".DropdownButton").should("exist").click();
   });
+  it("Click on product and redirect to detailed product", () => {
+    cy.visit("http://localhost:5173/products");
+    cy.get("#productsList").first().click();
+    cy.url().should("include", "/products/1");
+  });
+});
+describe("Detailed product", () => {
+  it("Render detailed product", () => {
+    cy.visit("http://localhost:5173/products/1");
+    cy.get("p").should("contain", "Ava T-shirt");
+  });
 });
