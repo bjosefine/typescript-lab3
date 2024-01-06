@@ -1,9 +1,12 @@
 import { useEffect, useContext, useState } from "react";
 import { FavoritesInterface } from "../../interface/interface";
-import { UserContextInterface } from "../../contexts/Context";
-import { UserContext } from "../../contexts/Context";
+import { UserContextInterface } from "../../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 
-export const UserFavourites = () => {
+import { ArrowBackIcon } from "../../assets/icons/ArrowBackIcon";
+import { Link } from "react-router-dom";
+
+export const UserFavorites = () => {
   const userContext = useContext(UserContext) as UserContextInterface;
   const { user } = userContext;
   const [favorites, setFavorites] = useState<FavoritesInterface[]>([]);
@@ -29,6 +32,11 @@ export const UserFavourites = () => {
 
   return (
     <>
+      <div>
+        <Link to="/profile">
+          <ArrowBackIcon />
+        </Link>
+      </div>
       <div className="w-full">
         <p className="font-secondary text-4xl tracking-tight text-center">
           Your Favorites

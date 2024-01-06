@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import { UserContext } from "../../contexts/Context";
-import { UserContextInterface } from "../../contexts/Context";
+import { UserContext } from "../../contexts/UserContext";
+import { UserContextInterface } from "../../contexts/UserContext";
 import { Button } from "../../components/Button";
 import { Link } from "react-router-dom";
 
