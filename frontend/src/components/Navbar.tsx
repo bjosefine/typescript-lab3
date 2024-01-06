@@ -51,22 +51,26 @@ export const Navbar = () => {
           </div>
           {/* ICONS CONTAINER */}
           <div className="w-full uppercase flex flex-col sm:flex-row sm:items-center sm:p-2 sm:gap-2 sm:justify-end">
-            <div className="p-1 flex justify-between border-t border-b gap-2 sm:border-none">
-              <span className="flex gap-2 items-center">
-                <CartIcon /> <p className="text-sm sm:hidden">Cart</p>
-              </span>
-              <span>
-                <p className="text-sm">0</p>
-              </span>
-            </div>
-            <div className="p-1 flex justify-between border-b gap-2 sm:border-none">
-              <span className="flex gap-2 items-center">
-                <HeartIcon /> <p className="text-sm sm:hidden">Favourites</p>
-              </span>
-              <span>
-                <p className="text-sm">{favoritesCount}</p>
-              </span>
-            </div>
+            <Link to="/cart">
+              <div className="p-1 flex justify-between border-t border-b gap-2 sm:border-none">
+                <span className="flex gap-2 items-center">
+                  <CartIcon /> <p className="text-sm sm:hidden">Cart</p>
+                </span>
+                <span>
+                  <p className="text-sm">0</p>
+                </span>
+              </div>
+            </Link>
+            <Link to="favorite">
+              <div className="p-1 flex justify-between border-b gap-2 sm:border-none">
+                <span className="flex gap-2 items-center">
+                  <HeartIcon /> <p className="text-sm sm:hidden">Favourites</p>
+                </span>
+                <span>
+                  <p className="text-sm">{favoritesCount}</p>
+                </span>
+              </div>
+            </Link>
             <div
               id="navProfile"
               className="p-1 flex justify-between border-b gap-2 sm:border-none"
