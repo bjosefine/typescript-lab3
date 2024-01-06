@@ -35,9 +35,9 @@ router.get("/products/:productId", async (request, response) => {
       productMaterial, 
       category.categoryName as productCategory, 
       createdAt 
-    FROM product 
-    INNER JOIN category ON product.productCategory = category.categoryId
-    WHERE (productId = $1)
+      FROM product 
+      INNER JOIN category ON product.productCategory = category.categoryId
+      WHERE (productId = $1)
     `,
       [productId]
     );

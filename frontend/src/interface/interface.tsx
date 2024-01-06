@@ -1,5 +1,5 @@
 export interface UserInterface {
-  userid: number;
+  userid?: number;
   useremail: string;
   userpassword: string;
   userfirstname: string;
@@ -9,7 +9,7 @@ export interface UserInterface {
   userstreet: string;
   usercity: string;
   userstate: string;
-  userzipCode: string;
+  userzipcode: string;
 }
 
 export interface ProductsInterface {
@@ -38,4 +38,13 @@ export interface OrdersInterface {
     productPrice: number;
     productQuantity: number;
   }[];
+}
+export interface FavoritesInterface {
+  favoriteid: number;
+  userid: number;
+  productid: number;
+  productname: string;
+  productprice: number;
+  productimg: string;
+  productmaterial: string;
 }

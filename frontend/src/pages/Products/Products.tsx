@@ -71,7 +71,10 @@ export const Products: React.FC = () => {
             .slice(0, visibleCount)
             .map(({ productid, productname, productprice, productimg }) => (
               <Link to={`/products/${productid}`} key={productid}>
-                <div className="flex flex-col items-start w-[200px]">
+                <div
+                  id="productsList"
+                  className="flex flex-col items-start w-[200px]"
+                >
                   <img
                     src={productimg}
                     alt={productname}

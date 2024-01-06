@@ -44,6 +44,7 @@ export const Login: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col p-2 gap-2 items-center">
             <input
+              name="email"
               type="text"
               placeholder="email"
               className="border border-black w-52"
@@ -51,7 +52,8 @@ export const Login: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              type="text"
+              name="password"
+              type="password"
               placeholder="password"
               className="border border-black w-52"
               value={password}
