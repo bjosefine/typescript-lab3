@@ -5,11 +5,11 @@ describe("Add to favorite TDD test", () => {
   const productId = 1;
 
   it("Post favorite with the props passed", () => {
-    const postSpy = cy.spy().as("postFavorite");
-    cy.mount(
-      <AddToFavorite userId={userId} productId={productId} onClick={postSpy} />
-    );
+    cy.intercept("POST", "/api/favorites", (request) => {
+      expect(request.body).to.include({ userid: userId, productid: productId });
+      request.reply({ statusCode: 200, body: { message: "Favorite added" } });
+    }).as("addFavorite");
+    cy.mount(<AddToFavorite userId={userId} productId={productId} />);
     cy.get("button").contains("Add to favorite").click();
-    expect(postSpy).to.have.been.calledWith(userId, productId);
   });
 });
