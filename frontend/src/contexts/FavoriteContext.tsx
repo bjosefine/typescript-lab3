@@ -30,7 +30,7 @@ export const FavoriteProvider = ({ children }: FavoriteProviderProp) => {
       .catch((error) => {
         console.error("Error fetching favorites:", error);
       });
-  }, [user?.userid]);
+  }, [user?.userid, favoritesCount]);
 
   return (
     <FavoriteContext.Provider value={{ favoritesCount, setFavoritesCount }}>

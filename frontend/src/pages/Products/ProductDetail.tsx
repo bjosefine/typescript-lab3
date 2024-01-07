@@ -1,13 +1,18 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Button } from "../../components/Button";
-import { HeartIcon } from "../../assets/icons/HeartIcon";
 import { ProductsInterface } from "../../interface/interface";
+import { AddToFavorite } from "../../components/AddToFavorite";
+import { UserContext } from "../../contexts/UserContext";
+import { UserContextInterface } from "../../contexts/UserContext";
 
 export const ProductDetail = () => {
   const { productId } = useParams();
   const [productDetail, setProductDetail] = useState<ProductsInterface[]>([]);
   console.log(productId);
+
+  const userContext = useContext(UserContext) as UserContextInterface;
+  const { user } = userContext;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -52,10 +57,10 @@ export const ProductDetail = () => {
                 <p>{productprice} $</p>
                 <div className="flex gap-2 uppercase">
                   <Button label="Add to cart" type="black" />
-                  <div className="flex gap-1 items-center">
-                    <HeartIcon className="w-5 h-5" />
-                    <p>Add to favourites</p>
-                  </div>
+                  <AddToFavorite
+                    productId={productid}
+                    userId={user?.userid || 0}
+                  />
                 </div>
               </div>
             </div>
