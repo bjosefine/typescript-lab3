@@ -6,7 +6,6 @@ import { UserContext } from "../../contexts/UserContext";
 import { ArrowBackIcon } from "../../assets/icons/ArrowBackIcon";
 import { Link } from "react-router-dom";
 import { AddToFavorite } from "../../components/AddToFavorite";
-import { Products } from "../Products/Products";
 
 export const UserFavorites = () => {
   const userContext = useContext(UserContext) as UserContextInterface;
