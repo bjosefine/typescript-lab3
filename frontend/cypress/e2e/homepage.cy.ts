@@ -5,7 +5,7 @@ describe("Homepage", () => {
   });
   it("Click on shop now", () => {
     cy.visit("http://localhost:5173/");
-    cy.get("button:contains('Shop now')").click();
+    cy.get("button").contains("Shop now").click();
     cy.url().should("include", "/products");
   });
 });
