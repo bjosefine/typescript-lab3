@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import {
@@ -7,12 +7,19 @@ import {
   ProductsInterface,
 } from "../../interface/interface";
 import { DropdownButton } from "../../components/DropdownButton";
+import { AddToFavorite } from "../../components/AddToFavorite";
+
+import { UserContext } from "../../contexts/UserContext";
+import { UserContextInterface } from "../../contexts/UserContext";
 
 export const Products: React.FC = () => {
   const [products, setProducts] = useState<ProductsInterface[]>([]);
   const [categories, setCategories] = useState<CategoryInterface[]>([]);
   const [visibleCount, setVisibleCount] = useState(10);
   const [noMoreProducts, setNoMoreProducts] = useState(false);
+
+  const userContext = useContext(UserContext) as UserContextInterface;
+  const { user } = userContext;
 
   const handleLoadMore = () => {
     setVisibleCount(visibleCount + 5); // Increase the number of products to display
@@ -79,6 +86,11 @@ export const Products: React.FC = () => {
                     src={productimg}
                     alt={productname}
                     className="w-[200px]"
+                  />
+                  <AddToFavorite
+                    userId={user?.userid || 0}
+                    productId={productid}
+                    iconOnly
                   />
                   <div className="text-left w-full">
                     <p

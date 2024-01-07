@@ -64,4 +64,19 @@ router.post("/favorites", async (request, response) => {
     response.status(500).send("FAIL");
   }
 });
+
+router.delete("/favorites/:userId/:productId", async (request, response) => {
+  const { userId, productId } = request.params;
+  try {
+    await client.query(
+      `DELETE FROM favorite WHERE userId = $1 AND productId = $2`,
+      [userId, productId]
+    );
+    response.status(200).send({ message: "yay deleted" });
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("FAIL");
+  }
+});
+
 export default router;
