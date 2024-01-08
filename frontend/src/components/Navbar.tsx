@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 
 import { UserContext } from "../contexts/UserContext";
 import { FavoriteContext } from "../contexts/FavoriteContext";
+import { CartContext } from "../contexts/CartContext";
 
 import { CartIcon } from "../assets/icons/CartIcon";
 import { HeartIcon } from "../assets/icons/HeartIcon";
@@ -14,7 +15,8 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const userContext = useContext(UserContext);
   const user = userContext ? userContext.user : null;
-  const { favoritesCount } = useContext(FavoriteContext);
+  const favoriteContext = useContext(FavoriteContext);
+  const cartContext = useContext(CartContext);
   return (
     <>
       <div
@@ -57,7 +59,9 @@ export const Navbar = () => {
                   <CartIcon /> <p className="text-sm sm:hidden">Cart</p>
                 </span>
                 <span>
-                  <p className="text-sm">0</p>
+                  <p className="cartCounter text-sm">
+                    {cartContext?.cartCount}
+                  </p>
                 </span>
               </div>
             </Link>
@@ -67,7 +71,7 @@ export const Navbar = () => {
                   <HeartIcon /> <p className="text-sm sm:hidden">Favourites</p>
                 </span>
                 <span>
-                  <p className="text-sm">{favoritesCount}</p>
+                  <p className="text-sm">{favoriteContext?.favoritesCount}</p>
                 </span>
               </div>
             </Link>
