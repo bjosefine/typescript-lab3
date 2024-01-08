@@ -4,6 +4,7 @@ import { UserContextInterface } from "../../contexts/UserContext";
 import { UserContext } from "../../contexts/UserContext";
 
 import { BackButton } from "../../components/BackButton";
+import { SadIcon } from "../../assets/icons/SadIcon";
 
 export const UserOrders = () => {
   const userContext = useContext(UserContext) as UserContextInterface;
@@ -58,35 +59,45 @@ export const UserOrders = () => {
         <p className="font-secondary text-4xl tracking-tight text-center">
           Your orders
         </p>
-        {orders.map((order) => (
-          <div
-            key={order.orderid}
-            className="bg-black text-white w-64 gap-3 flex flex-col p-4 mb-4"
-          >
-            <p>Order ID: {order.orderid}</p>
-            <p>
-              Status: <span className="italic">{order.orderstatus}</span>
-            </p>
-            <p>Ordered: {new Date(order.createdat).toLocaleDateString()}</p>
+        {orders.length > 0 ? (
+          <>
+            {orders.map((order) => (
+              <div
+                key={order.orderid}
+                className="bg-black text-white w-64 gap-3 flex flex-col p-4 mb-4"
+              >
+                <p>Order ID: {order.orderid}</p>
+                <p>
+                  Status: <span className="italic">{order.orderstatus}</span>
+                </p>
+                <p>Ordered: {new Date(order.createdat).toLocaleDateString()}</p>
 
-            {order.products.map((product, index) => (
-              <div key={index} className="pb-3 border-b flex w-full gap-1">
-                <div>
-                  <img src={product.productImg} className="w-16" />
-                </div>
-                <div className="w-full">
-                  <p>{product.productName}</p>
-                  <p>Quantity: {product.productQuantity}</p>
-                  <p>
-                    Price:{" "}
-                    {calculateTotalPricePerProduct([product])[0].totalPrice}$
-                  </p>
-                </div>
+                {order.products.map((product, index) => (
+                  <div key={index} className="pb-3 border-b flex w-full gap-1">
+                    <div>
+                      <img src={product.productImg} className="w-16" />
+                    </div>
+                    <div className="w-full">
+                      <p>{product.productName}</p>
+                      <p>Quantity: {product.productQuantity}</p>
+                      <p>
+                        Price:{" "}
+                        {calculateTotalPricePerProduct([product])[0].totalPrice}
+                        $
+                      </p>
+                    </div>
+                  </div>
+                ))}
+                <p>Total price: {calculateTotalPrice(order.products)} </p>
               </div>
             ))}
-            <p>Total price: {calculateTotalPrice(order.products)} </p>
-          </div>
-        ))}
+          </>
+        ) : (
+          <>
+            <SadIcon className="w-32 h-32" />
+            <p>You haven't made any orders yet</p>
+          </>
+        )}
       </div>
     </>
   );

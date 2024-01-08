@@ -11,6 +11,7 @@ interface AddToFavoriteProps {
   userId: number;
   productId: number;
   iconOnly?: boolean;
+  remove?: boolean;
 }
 
 interface FavoriteProps {
@@ -21,6 +22,7 @@ export const AddToFavorite: React.FC<AddToFavoriteProps> = ({
   userId,
   productId,
   iconOnly,
+  remove,
 }) => {
   const favoriteContext = useContext(FavoriteContext);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -90,6 +92,18 @@ export const AddToFavorite: React.FC<AddToFavoriteProps> = ({
       <div onClick={handleAddToFavorite} className="p-2 absolute">
         {isFavorite ? <HeartFilledIcon /> : <HeartIcon />}
       </div>
+    );
+  }
+  if (remove) {
+    return (
+      <>
+        <Button
+          label="Remove favorite"
+          type="white"
+          icon={<HeartFilledIcon />}
+          onClick={handleAddToFavorite}
+        />
+      </>
     );
   }
 
