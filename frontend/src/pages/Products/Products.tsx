@@ -18,6 +18,8 @@ export const Products: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(10);
   const [noMoreProducts, setNoMoreProducts] = useState(false);
 
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
   const userContext = useContext(UserContext) as UserContextInterface;
   const { user } = userContext;
 
@@ -26,7 +28,11 @@ export const Products: React.FC = () => {
   };
 
   useEffect(() => {
-    fetch("/api/products")
+    const fetchUrl = selectedCategory
+      ? `/api/products/category/${selectedCategory}`
+      : "/api/products";
+
+    fetch(fetchUrl)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error ${response.status}`);
@@ -35,9 +41,7 @@ export const Products: React.FC = () => {
       })
       .then((result: ProductsInterface[]) => {
         setProducts(result);
-        if (visibleCount >= result.length) {
-          setNoMoreProducts(true);
-        }
+        setNoMoreProducts(visibleCount >= result.length);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
@@ -56,9 +60,10 @@ export const Products: React.FC = () => {
       .catch((error) => {
         console.error("Fetch error:", error);
       });
-  }, [visibleCount]);
+  }, [visibleCount, selectedCategory]);
 
   console.log({ products });
+
   return (
     <>
       <div className="p-2">
@@ -69,6 +74,7 @@ export const Products: React.FC = () => {
           <DropdownButton
             label="Filter"
             categories={categories.map((category) => category.categoryname)}
+            onSelect={(categoryName) => setSelectedCategory(categoryName)}
           />
         </div>
       </div>
