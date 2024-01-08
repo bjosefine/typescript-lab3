@@ -3,9 +3,9 @@ import { CartContext } from "../../src/contexts/CartContext";
 
 describe("Add to cart", () => {
   const productId = 1;
-  const addToCart = cy.stub().as("addToCart");
 
   beforeEach(() => {
+    const addToCart = cy.stub().as("addToCart");
     cy.mount(
       <CartContext.Provider value={{ addToCart }}>
         <AddToCart productId={productId} />
