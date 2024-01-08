@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { UserProvider } from "./contexts/UserContext";
 import { FavoriteProvider } from "./contexts/FavoriteContext";
+import { CartProvider } from "./contexts/CartContext";
 
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
@@ -24,15 +25,17 @@ function Root() {
   return (
     <>
       <UserProvider>
-        <FavoriteProvider>
-          <main className="font-thin bg-white">
-            <Navbar />
-            <div className="min-h-screen">
-              <Outlet />
-            </div>
-            <Footer />
-          </main>
-        </FavoriteProvider>
+        <CartProvider>
+          <FavoriteProvider>
+            <main className="font-thin bg-white">
+              <Navbar />
+              <div className="min-h-screen">
+                <Outlet />
+              </div>
+              <Footer />
+            </main>
+          </FavoriteProvider>
+        </CartProvider>
       </UserProvider>
     </>
   );

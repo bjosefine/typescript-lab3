@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import { Button } from "../../components/Button";
 import { ProductsInterface } from "../../interface/interface";
 import { AddToFavorite } from "../../components/AddToFavorite";
 import { UserContext } from "../../contexts/UserContext";
 import { UserContextInterface } from "../../contexts/UserContext";
+import { AddToCart } from "../../components/AddToCart";
 
 export const ProductDetail = () => {
   const { productId } = useParams();
@@ -56,7 +56,7 @@ export const ProductDetail = () => {
                 <p>Material: {productmaterial}</p>
                 <p>{productprice} $</p>
                 <div className="flex gap-2 uppercase">
-                  <Button label="Add to cart" type="black" />
+                  <AddToCart productId={Number(productId) || 0} />
                   <AddToFavorite
                     productId={productid}
                     userId={user?.userid || 0}
