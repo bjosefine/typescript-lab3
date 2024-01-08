@@ -41,10 +41,26 @@ export const UserCart = () => {
           <ArrowBackIcon />
         </Link>
       </div>
-      <div>
+
+      <div className="flex flex-col justify-center items-center">
+        <p className="font-secondary text-4xl tracking-tight text-start">
+          Your cart
+        </p>
         {cart.flat().map((product) => (
-          <div key={product.productid}>
-            <p>{product.productname}</p>
+          <div
+            key={product.productid}
+            className="w-1/2 flex border-b border-gray-400"
+          >
+            <div className="flex">
+              <img src={product.productimg} className="w-12" />
+              <p>{product.productname}</p>
+            </div>
+
+            <div className="flex-grow">
+              <p className="text-end">
+                {product.productprice} <span>$</span>
+              </p>
+            </div>
           </div>
         ))}
       </div>
