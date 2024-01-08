@@ -1,8 +1,7 @@
 import { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { ArrowBackIcon } from "../../assets/icons/ArrowBackIcon";
 import { CartContext } from "../../contexts/CartContext";
 import { ProductsInterface } from "../../interface/interface";
+import { BackButton } from "../../components/BackButton";
 
 export const UserCart = () => {
   const cartContext = useContext(CartContext);
@@ -36,11 +35,7 @@ export const UserCart = () => {
 
   return (
     <>
-      <div>
-        <Link to="/profile">
-          <ArrowBackIcon />
-        </Link>
-      </div>
+      <BackButton to="profile" />
 
       <div className="flex flex-col justify-center items-center">
         <p className="font-secondary text-4xl tracking-tight text-start">

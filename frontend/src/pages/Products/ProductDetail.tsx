@@ -5,6 +5,7 @@ import { AddToFavorite } from "../../components/AddToFavorite";
 import { UserContext } from "../../contexts/UserContext";
 import { UserContextInterface } from "../../contexts/UserContext";
 import { AddToCart } from "../../components/AddToCart";
+import { BackButton } from "../../components/BackButton";
 
 export const ProductDetail = () => {
   const { productId } = useParams();
@@ -34,6 +35,7 @@ export const ProductDetail = () => {
   console.log({ productDetail });
   return (
     <>
+      <BackButton to="products" />
       {productDetail.map(
         ({
           productid,
