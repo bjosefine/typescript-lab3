@@ -3,9 +3,8 @@ import { FavoritesInterface } from "../../interface/interface";
 import { UserContextInterface } from "../../contexts/UserContext";
 import { UserContext } from "../../contexts/UserContext";
 
-import { ArrowBackIcon } from "../../assets/icons/ArrowBackIcon";
-import { Link } from "react-router-dom";
 import { AddToFavorite } from "../../components/AddToFavorite";
+import { BackButton } from "../../components/BackButton";
 
 export const UserFavorites = () => {
   const userContext = useContext(UserContext) as UserContextInterface;
@@ -33,11 +32,7 @@ export const UserFavorites = () => {
 
   return (
     <>
-      <div>
-        <Link to="/profile">
-          <ArrowBackIcon />
-        </Link>
-      </div>
+      <BackButton to="profile" />
       <div className="w-full">
         <p className="font-secondary text-4xl tracking-tight text-center">
           Your Favorites

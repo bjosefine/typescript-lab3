@@ -1,13 +1,9 @@
-import { Link } from "react-router-dom";
-import { ArrowBackIcon } from "../../assets/icons/ArrowBackIcon";
+import { BackButton } from "../../components/BackButton";
+
 export const UserSettings = () => {
   return (
     <>
-      <div>
-        <Link to="/profile">
-          <ArrowBackIcon />
-        </Link>
-      </div>
+      <BackButton to="profile" />
       <p>hello settings</p>
     </>
   );

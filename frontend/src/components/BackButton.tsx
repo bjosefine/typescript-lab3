@@ -7,9 +7,9 @@ interface BackButtonProps {
 
 export const BackButton = ({ to }: BackButtonProps) => {
   return (
-    <div className="goBack">
+    <div className="goBack p-2">
       <Link to={`/${to}`}>
-        <ArrowBackIcon />
+        <ArrowBackIcon className="w-7 h-7" />
       </Link>
     </div>
   );

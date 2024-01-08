@@ -2,9 +2,8 @@ import { useEffect, useContext, useState } from "react";
 import { OrdersInterface } from "../../interface/interface";
 import { UserContextInterface } from "../../contexts/UserContext";
 import { UserContext } from "../../contexts/UserContext";
-import { Link } from "react-router-dom";
 
-import { ArrowBackIcon } from "../../assets/icons/ArrowBackIcon";
+import { BackButton } from "../../components/BackButton";
 
 export const UserOrders = () => {
   const userContext = useContext(UserContext) as UserContextInterface;
@@ -54,11 +53,7 @@ export const UserOrders = () => {
 
   return (
     <>
-      <div>
-        <Link to="/profile">
-          <ArrowBackIcon />
-        </Link>
-      </div>
+      <BackButton to="profile" />
       <div className="flex flex-col items-center gap-4">
         <p className="font-secondary text-4xl tracking-tight text-center">
           Your orders
