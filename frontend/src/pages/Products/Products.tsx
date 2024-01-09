@@ -109,9 +109,7 @@ export const Products: React.FC = () => {
                     >
                       {productname}
                     </p>
-                    <p>
-                      {productprice} <span>$</span>
-                    </p>
+                    <p>{productprice}$</p>
                   </div>
                 </div>
               </Link>

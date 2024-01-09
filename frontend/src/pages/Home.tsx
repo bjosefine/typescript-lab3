@@ -32,27 +32,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      {/* Home section */}
-      <div className="w-screen h-screen bg-orange-200">
-        <p>section 1</p>
-      </div>
-      <div className="w-screen h-screen bg-red-200">
-        <p>section 2</p>
-      </div>
-      {/* Components  */}
-      <div className="hidden">
-        <Button label="black" type="black" />
-        <Button label="white" type="white" />
-        <Button label="header" type="header" />
-        <Button label="with icon" type="white" icon={<HeartIcon />} />
-        <HeartFilledIcon />
-        <HeartIcon />
-        <CartIcon />
-        <SearchIcon />
-        <ProfileIcon />
-        <ArrowIcon />
-        <LoadingIcon />
-      </div>
     </>
   );
 };

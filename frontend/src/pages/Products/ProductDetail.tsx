@@ -56,7 +56,7 @@ export const ProductDetail = () => {
             <div className="flex flex-grow items-center justify-center">
               <div className=" flex flex-col">
                 <p>Material: {productmaterial}</p>
-                <p>{productprice} $</p>
+                <p>{productprice}$</p>
                 <div className="flex gap-2 uppercase">
                   <AddToCart productId={Number(productId) || 0} />
                   <AddToFavorite

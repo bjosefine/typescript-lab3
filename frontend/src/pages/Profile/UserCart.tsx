@@ -3,6 +3,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { ProductsInterface } from "../../interface/interface";
 import { BackButton } from "../../components/BackButton";
 import { SadIcon } from "../../assets/icons/SadIcon";
+import { Button } from "../../components/Button";
 
 export const UserCart = () => {
   const cartContext = useContext(CartContext);
@@ -12,6 +13,14 @@ export const UserCart = () => {
 
   const [cart, setCart] = useState<ProductsInterface[]>([]);
   console.log({ cart });
+
+  const calculateTotalPrice = (products: ProductsInterface[]) => {
+    let totalPrice = 0;
+    products.flat().forEach((product) => {
+      totalPrice += product.productprice;
+    });
+    return totalPrice;
+  };
 
   useEffect(() => {
     if (cartContext) {
@@ -55,16 +64,15 @@ export const UserCart = () => {
                 </div>
 
                 <div className="flex-grow">
-                  <p className="text-end">
-                    {product.productprice} <span>$</span>
-                  </p>
+                  <p className="text-end">{product.productprice}$</p>
                 </div>
               </div>
             ))}
             <div className="w-1/2">
-              <p className="text-end">
-                Total: <span>$</span>
-              </p>
+              <p className="text-end">Total: {calculateTotalPrice(cart)}$</p>
+            </div>
+            <div className="w-1/2 flex justify-end">
+              <Button label="Order" type="black" />
             </div>
           </>
         ) : (

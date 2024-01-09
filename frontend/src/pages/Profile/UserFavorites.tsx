@@ -52,9 +52,7 @@ export const UserFavorites = () => {
                     <img src={favorite.productimg} className="w-full" />
                     <div className="w-full text-start">
                       <p>{favorite.productname}</p>
-                      <p>
-                        {favorite.productprice} <span>$</span>
-                      </p>
+                      <p>{favorite.productprice}$</p>
                     </div>
                     <AddToFavorite
                       userId={user?.userid || 0}

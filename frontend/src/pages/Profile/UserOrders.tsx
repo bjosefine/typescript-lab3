@@ -29,12 +29,11 @@ export const UserOrders = () => {
     products: { productPrice: number; productQuantity: number }[]
   ) => {
     let totalPrice = 0;
-    Object.values(products).forEach((product) => {
+    products.forEach((product) => {
       totalPrice += product.productPrice * product.productQuantity;
     });
     return totalPrice;
   };
-  console.log(calculateTotalPrice);
 
   useEffect(() => {
     fetch(`/api/user/orders/${user?.userid}`)
@@ -88,7 +87,7 @@ export const UserOrders = () => {
                     </div>
                   </div>
                 ))}
-                <p>Total price: {calculateTotalPrice(order.products)} </p>
+                <p>Total price: {calculateTotalPrice(order.products)}$ </p>
               </div>
             ))}
           </>
